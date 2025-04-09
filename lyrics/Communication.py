@@ -9,7 +9,7 @@ class RaspberryPiComm:
         self.port = port
         if(self.host is None):
             print("无法将hostname:",hostname,"解析成ip地址!")
-            raise ValueError("无法将hostname:",hostname,"解析成ip地址!")
+            # raise ValueError("无法将hostname:",hostname,"解析成ip地址!")
     
     # 返回解析后的ip地址
     def get_ip(self):

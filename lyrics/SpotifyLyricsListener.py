@@ -76,13 +76,13 @@ def get_lyrics(music_canonical):
         print("认证出错,重新获取中!!")
         sp.delete_token()
         time.sleep(1)
-        get_lyrics(music_canonical)
+        return get_lyrics(music_canonical)
     except NoLyricsException as e:
         print("get_lyrics未找到歌词数据! NoLyricsException:",e)
         resultJson = None
     return resultJson
 
-def fetch_playback_state():
+def fetch_playback_state(is_local):
     global access_token
     while True:
         if not access_token:
@@ -154,7 +154,10 @@ def fetch_playback_state():
             save_local(standardLyricsObj.to_dict(),"spotify_json")
         # 无论如何都会推送
         #pi_comm = RaspberryPiComm()
-        pi_comm = RaspberryPiComm(hostname="127.0.0.1")
+        if(is_local):
+            pi_comm = RaspberryPiComm(hostname="127.0.0.1")
+        else:
+            pi_comm = RaspberryPiComm()
         try:
             pi_comm.send_lyrics(standardLyricsObj.to_json())  
         except Exception as e:
@@ -166,8 +169,8 @@ def save_local(data,name):
     with open(f"./{name}.json", "w", encoding="utf-8") as file:
         json.dump(data, file, indent=4, ensure_ascii=False)
 
-def start():
-    threading.Thread(target=fetch_playback_state, daemon=True).start()
+def start(is_local=True):
+    threading.Thread(target=lambda: fetch_playback_state(is_local), daemon=True).start()
     app.run(port=5000)
 
  

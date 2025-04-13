@@ -1,12 +1,13 @@
 import json
 
 class StandardLyrics:
-    def __init__(self, title: str, artist: str, image:str,time:str,lyrics: list):
+    def __init__(self, title: str, artist: str, image:str,time:str,status:bool,lyrics: list):
         self.title = title
         self.artist = artist
         self.lyrics = lyrics
         self.image = image
         self.time = time
+        self.status = status
 
     def to_dict(self):
         return {
@@ -14,7 +15,8 @@ class StandardLyrics:
             "artist": self.artist,
             "time":self.time,
             "lyrics": self.lyrics,
-            "image": self.image
+            "image": self.image,
+            "status": self.status
         }
         
     def to_json(self, indent=4, ensure_ascii=False):
@@ -32,4 +34,7 @@ class StandardLyrics:
         
     def set_image(self,image):
         self.image= image
+        
+    def set_status(self,status):
+        self.status= status
         

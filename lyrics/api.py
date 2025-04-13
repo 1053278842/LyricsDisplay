@@ -33,8 +33,10 @@ class Spotify:
                 self.session.headers['authorization'] = f"Bearer {self.token}"
                 # i don't know why it sometimes returns the wrong token
                 if(self.token[:2]!="BQ"): 
+                    print("===================")
                     print(TOKEN_URL)
-                    time.sleep(1)
+                    print(self.token)
+                    print("===================")
                     self.login()
             else:
                 self.token = token

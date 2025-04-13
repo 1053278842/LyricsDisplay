@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Enhanced CRT Pause Overlay</title>
+    <style>
+        body {
+            margin: 0;
+            background: black;
+            overflow: hidden;
+        }
+
+        /* 整体容器：增加色偏、闪烁和水平轻微抖动 */
+        #crt-pause-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.552);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            /* 调整滤镜使色片效果更明显 */
+            filter: hue-rotate(0deg) saturate(1.8) brightness(1.2) contrast(1.2);
+            animation: crtColorShift 4s infinite alternate, crtShakeHorizontal 0.5s infinite alternate, tubeFlash 3s infinite;
+        }
+
+        #crt-pause-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        /* 色偏动画：增强色片效果 */
+        @keyframes crtColorShift {
+            0% {
+                filter: hue-rotate(0deg) saturate(1.8) brightness(1.2) contrast(1.2);
+            }
+
+            100% {
+                filter: hue-rotate(8deg) saturate(2.2) brightness(1.3) contrast(1.3);
+            }
+        }
+
+        /* 水平抖动动画，取消垂直偏移 */
+        @keyframes crtShakeHorizontal {
+            0% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(-2px);
+            }
+
+            100% {
+                transform: translateX(2px);
+            }
+        }
+
+        /* 模拟CRT管线闪动效果：周期性调节整体透明度闪烁 */
+        @keyframes tubeFlash {
+            0% {
+                opacity: 1;
+            }
+
+            40% {
+                opacity: 0.9;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            60% {
+                opacity: 0.95;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* CRT扫描线效果 */
+        #crt-pause-overlay::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(to bottom,
+                    rgba(0, 255, 0, 0.06),
+                    rgba(0, 255, 0, 0.06) 2px,
+                    transparent 2px,
+                    transparent 4px);
+            pointer-events: none;
+            animation: scanlineFlicker 0.1s infinite alternate;
+        }
+
+        /* 扫描线闪动：快速轻微改变透明度 */
+        @keyframes scanlineFlicker {
+            0% {
+                opacity: 0.8;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* CRT 暂停图标 */
+        .pause-icon {
+            width: 20vw;
+            height: 20vw;
+            border-radius: 50%;
+            background: rgba(50, 205, 50, 0.776);
+            box-shadow: 0 0 20px limegreen;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            animation: iconGlow 1s infinite alternate;
+            overflow: hidden;
+        }
+
+        /* 暂停图标内的两个竖条 */
+        .pause-icon::before,
+        .pause-icon::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 15%;
+            width: 3vw;
+            height: 8vw;
+            background: rgba(0, 0, 0, 0.8);
+            /* 保持背景透明，显示下层效果 */
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 5px limegreen;
+        }
+
+        .pause-icon::before {
+            left: 11vw;
+        }
+
+        .pause-icon::after {
+            right: 11vw;
+        }
+
+        @keyframes iconGlow {
+            0% {
+                opacity: 0.7;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+</body>
+
+</html>

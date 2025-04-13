@@ -118,7 +118,7 @@ def fetch_playback_state(is_local):
         curr_music_url = data["item"]["external_urls"]["spotify"]
         curr_music_image_url = data["item"]["album"]["images"][0]["url"]
         
-        is_playing = data["is_playing"]
+        is_playing = False if not data["is_playing"] else True 
         curr_music_timestamp =  data["timestamp"]
         curr_music_progress_ms =  data["progress_ms"]
         title = data["item"]["name"]
@@ -145,11 +145,12 @@ def fetch_playback_state(is_local):
         else:    
             spotifyFactory =  LyricsAdapterFactory.get_adapter(Sources.Spotify)
             standardLyricsObj = spotifyFactory.convert(lyrics_json)
-            
+            # 以下数据需要通过接口获得
             standardLyricsObj.set_title(title)
             standardLyricsObj.set_artist(artist)
             standardLyricsObj.set_time(curr_music_progress_ms)
             standardLyricsObj.set_image(curr_music_image_url)
+            standardLyricsObj.set_status(is_playing)
             standardLyricsObj.to_json()
             save_local(standardLyricsObj.to_dict(),"spotify_json")
         # 无论如何都会推送

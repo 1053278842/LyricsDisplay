@@ -1,33 +1,40 @@
 {
     "device": {
-        "id": "2c0209d1eeac5771ce73903784f53af5e844ce95",
+        "id": "519b7870f90eeb80138e76566dfcf241082295f4",
         "is_active": true,
         "is_private_session": false,
         "is_restricted": false,
-        "name": "DESKTOP-ORSLCSS",
+        "name": "Web Player (Chrome)",
         "supports_volume": true,
         "type": "Computer",
-        "volume_percent": 0
+        "volume_percent": 41
     },
     "shuffle_state": false,
     "smart_shuffle": false,
-    "repeat_state": "track",
-    "timestamp": 1744235010081,
-    "context": null,
-    "progress_ms": 60723,
+    "repeat_state": "context",
+    "timestamp": 1744464356717,
+    "context": {
+        "external_urls": {
+            "spotify": "https://open.spotify.com/artist/2elBjNSdBE2Y3f0j1mjrql"
+        },
+        "href": "https://api.spotify.com/v1/artists/2elBjNSdBE2Y3f0j1mjrql",
+        "type": "artist",
+        "uri": "spotify:artist:2elBjNSdBE2Y3f0j1mjrql"
+    },
+    "progress_ms": 65031,
     "item": {
         "album": {
-            "album_type": "compilation",
+            "album_type": "album",
             "artists": [
                 {
                     "external_urls": {
-                        "spotify": "https://open.spotify.com/artist/0LyfQWJT6nXafLPZqxe9Of"
+                        "spotify": "https://open.spotify.com/artist/2elBjNSdBE2Y3f0j1mjrql"
                     },
-                    "href": "https://api.spotify.com/v1/artists/0LyfQWJT6nXafLPZqxe9Of",
-                    "id": "0LyfQWJT6nXafLPZqxe9Of",
-                    "name": "Various Artists",
+                    "href": "https://api.spotify.com/v1/artists/2elBjNSdBE2Y3f0j1mjrql",
+                    "id": "2elBjNSdBE2Y3f0j1mjrql",
+                    "name": "Jay Chou",
                     "type": "artist",
-                    "uri": "spotify:artist:0LyfQWJT6nXafLPZqxe9Of"
+                    "uri": "spotify:artist:2elBjNSdBE2Y3f0j1mjrql"
                 }
             ],
             "available_markets": [
@@ -81,7 +88,6 @@
                 "ES",
                 "SE",
                 "CH",
-                "TW",
                 "TR",
                 "UY",
                 "US",
@@ -110,7 +116,6 @@
                 "JO",
                 "PS",
                 "IN",
-                "BY",
                 "KZ",
                 "MD",
                 "UA",
@@ -135,6 +140,7 @@
                 "BS",
                 "BB",
                 "BZ",
+                "BT",
                 "BW",
                 "BF",
                 "CV",
@@ -142,29 +148,41 @@
                 "DM",
                 "FJ",
                 "GM",
+                "GE",
                 "GD",
                 "GW",
+                "GY",
                 "HT",
                 "JM",
+                "KI",
                 "LS",
                 "LR",
                 "MW",
+                "MV",
                 "ML",
+                "MH",
                 "FM",
                 "NA",
+                "NR",
                 "NE",
+                "PW",
                 "PG",
-                "PR",
+                "WS",
                 "SM",
                 "ST",
                 "SN",
                 "SC",
                 "SL",
+                "SB",
                 "KN",
                 "LC",
                 "VC",
+                "SR",
                 "TL",
+                "TO",
                 "TT",
+                "TV",
+                "VU",
                 "AZ",
                 "BN",
                 "BI",
@@ -204,64 +222,44 @@
                 "XK"
             ],
             "external_urls": {
-                "spotify": "https://open.spotify.com/album/6t4h3psMfV6uQ49CmZklhn"
+                "spotify": "https://open.spotify.com/album/4stTYRQWkrNj9BOJCwuXUT"
             },
-            "href": "https://api.spotify.com/v1/albums/6t4h3psMfV6uQ49CmZklhn",
-            "id": "6t4h3psMfV6uQ49CmZklhn",
+            "href": "https://api.spotify.com/v1/albums/4stTYRQWkrNj9BOJCwuXUT",
+            "id": "4stTYRQWkrNj9BOJCwuXUT",
             "images": [
                 {
                     "height": 640,
-                    "url": "https://i.scdn.co/image/ab67616d0000b2736dedfb8bb375b661f56881a2",
+                    "url": "https://i.scdn.co/image/ab67616d0000b273283111b93a25fffd9d6f050d",
                     "width": 640
                 },
                 {
                     "height": 300,
-                    "url": "https://i.scdn.co/image/ab67616d00001e026dedfb8bb375b661f56881a2",
+                    "url": "https://i.scdn.co/image/ab67616d00001e02283111b93a25fffd9d6f050d",
                     "width": 300
                 },
                 {
                     "height": 64,
-                    "url": "https://i.scdn.co/image/ab67616d000048516dedfb8bb375b661f56881a2",
+                    "url": "https://i.scdn.co/image/ab67616d00004851283111b93a25fffd9d6f050d",
                     "width": 64
                 }
             ],
-            "name": "Another Day, Another Time: Celebrating the Music of 'Inside Llewyn Davis'",
-            "release_date": "2015-01-09",
+            "name": "最偉大的作品",
+            "release_date": "2022-07-15",
             "release_date_precision": "day",
-            "total_tracks": 34,
+            "total_tracks": 12,
             "type": "album",
-            "uri": "spotify:album:6t4h3psMfV6uQ49CmZklhn"
+            "uri": "spotify:album:4stTYRQWkrNj9BOJCwuXUT"
         },
         "artists": [
             {
                 "external_urls": {
-                    "spotify": "https://open.spotify.com/artist/5opRYqktzpMFqZ7jtnp7yy"
+                    "spotify": "https://open.spotify.com/artist/2elBjNSdBE2Y3f0j1mjrql"
                 },
-                "href": "https://api.spotify.com/v1/artists/5opRYqktzpMFqZ7jtnp7yy",
-                "id": "5opRYqktzpMFqZ7jtnp7yy",
-                "name": "Oscar Isaac",
+                "href": "https://api.spotify.com/v1/artists/2elBjNSdBE2Y3f0j1mjrql",
+                "id": "2elBjNSdBE2Y3f0j1mjrql",
+                "name": "Jay Chou",
                 "type": "artist",
-                "uri": "spotify:artist:5opRYqktzpMFqZ7jtnp7yy"
-            },
-            {
-                "external_urls": {
-                    "spotify": "https://open.spotify.com/artist/4gFssfOmWNY3LfIZ3zyoy4"
-                },
-                "href": "https://api.spotify.com/v1/artists/4gFssfOmWNY3LfIZ3zyoy4",
-                "id": "4gFssfOmWNY3LfIZ3zyoy4",
-                "name": "Punch Brothers",
-                "type": "artist",
-                "uri": "spotify:artist:4gFssfOmWNY3LfIZ3zyoy4"
-            },
-            {
-                "external_urls": {
-                    "spotify": "https://open.spotify.com/artist/5fIZHCg2de8322HZodBDWL"
-                },
-                "href": "https://api.spotify.com/v1/artists/5fIZHCg2de8322HZodBDWL",
-                "id": "5fIZHCg2de8322HZodBDWL",
-                "name": "The Secret Sisters",
-                "type": "artist",
-                "uri": "spotify:artist:5fIZHCg2de8322HZodBDWL"
+                "uri": "spotify:artist:2elBjNSdBE2Y3f0j1mjrql"
             }
         ],
         "available_markets": [
@@ -315,7 +313,6 @@
             "ES",
             "SE",
             "CH",
-            "TW",
             "TR",
             "UY",
             "US",
@@ -344,7 +341,6 @@
             "JO",
             "PS",
             "IN",
-            "BY",
             "KZ",
             "MD",
             "UA",
@@ -369,6 +365,7 @@
             "BS",
             "BB",
             "BZ",
+            "BT",
             "BW",
             "BF",
             "CV",
@@ -376,29 +373,41 @@
             "DM",
             "FJ",
             "GM",
+            "GE",
             "GD",
             "GW",
+            "GY",
             "HT",
             "JM",
+            "KI",
             "LS",
             "LR",
             "MW",
+            "MV",
             "ML",
+            "MH",
             "FM",
             "NA",
+            "NR",
             "NE",
+            "PW",
             "PG",
-            "PR",
+            "WS",
             "SM",
             "ST",
             "SN",
             "SC",
             "SL",
+            "SB",
             "KN",
             "LC",
             "VC",
+            "SR",
             "TL",
+            "TO",
             "TT",
+            "TV",
+            "VU",
             "AZ",
             "BN",
             "BI",
@@ -438,23 +447,23 @@
             "XK"
         ],
         "disc_number": 1,
-        "duration_ms": 266960,
+        "duration_ms": 186813,
         "explicit": false,
         "external_ids": {
-            "isrc": "USNO11400759"
+            "isrc": "TWK972201206"
         },
         "external_urls": {
-            "spotify": "https://open.spotify.com/track/3o9uL1uNPcen0lItb1Hw3m"
+            "spotify": "https://open.spotify.com/track/2PEm4ZfvupUu0zd5gfLqRt"
         },
-        "href": "https://api.spotify.com/v1/tracks/3o9uL1uNPcen0lItb1Hw3m",
-        "id": "3o9uL1uNPcen0lItb1Hw3m",
+        "href": "https://api.spotify.com/v1/tracks/2PEm4ZfvupUu0zd5gfLqRt",
+        "id": "2PEm4ZfvupUu0zd5gfLqRt",
         "is_local": false,
-        "name": "Hang Me, Oh Hang Me",
-        "popularity": 42,
+        "name": "粉色海洋",
+        "popularity": 47,
         "preview_url": null,
-        "track_number": 23,
+        "track_number": 10,
         "type": "track",
-        "uri": "spotify:track:3o9uL1uNPcen0lItb1Hw3m"
+        "uri": "spotify:track:2PEm4ZfvupUu0zd5gfLqRt"
     },
     "currently_playing_type": "track",
     "actions": {

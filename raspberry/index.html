@@ -8,10 +8,175 @@
   <!-- 像素风格字体 -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
+    body {
+      margin: 0;
+      background: black;
+      overflow: hidden;
+    }
+
+    /* 整体容器：增加色偏、闪烁和水平轻微抖动 */
+    #crt-pause-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      /* 调整滤镜使色片效果更明显 */
+      filter: hue-rotate(0deg) saturate(1.8) brightness(1.2) contrast(1.2);
+      animation: crtColorShift 4s infinite alternate, crtShakeHorizontal 0.5s infinite alternate, tubeFlash 3s infinite;
+    }
+
+    #crt-pause-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    /* 色偏动画：增强色片效果 */
+    @keyframes crtColorShift {
+      0% {
+        filter: hue-rotate(0deg) saturate(1.8) brightness(1.2) contrast(1.2);
+      }
+
+      100% {
+        filter: hue-rotate(8deg) saturate(2.2) brightness(1.3) contrast(1.3);
+      }
+    }
+
+    /* 水平抖动动画，取消垂直偏移 */
+    @keyframes crtShakeHorizontal {
+      0% {
+        transform: translateX(0);
+      }
+
+      50% {
+        transform: translateX(-2px);
+      }
+
+      100% {
+        transform: translateX(2px);
+      }
+    }
+
+    /* 模拟CRT管线闪动效果：周期性调节整体透明度闪烁 */
+    @keyframes tubeFlash {
+      0% {
+        opacity: 1;
+      }
+
+      40% {
+        opacity: 0.9;
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      60% {
+        opacity: 0.95;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    /* CRT扫描线效果 */
+    #crt-pause-overlay::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(to bottom,
+          rgba(0, 255, 0, 0.06),
+          rgba(0, 255, 0, 0.06) 2px,
+          transparent 2px,
+          transparent 4px);
+      pointer-events: none;
+      animation: scanlineFlicker 0.1s infinite alternate;
+    }
+
+    /* 扫描线闪动：快速轻微改变透明度 */
+    @keyframes scanlineFlicker {
+      0% {
+        opacity: 0.8;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    /* CRT 暂停图标 */
+    .pause-icon {
+      width: 20vw;
+      height: 20vw;
+      border-radius: 50%;
+      background: rgba(50, 205, 50, 0.861);
+      box-shadow: 0 0 20px limegreen;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      animation: iconGlow 1s infinite alternate;
+      overflow: hidden;
+    }
+
+    /* 暂停图标内的两个竖条 */
+    .pause-icon::before,
+    .pause-icon::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 15%;
+      width: 3vw;
+      height: 8vw;
+      background: rgba(0, 0, 0, 0.8);
+      /* 保持背景透明，显示下层效果 */
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0 5px limegreen;
+    }
+
+    .pause-icon::before {
+      left: 11vw;
+    }
+
+    .pause-icon::after {
+      right: 11vw;
+    }
+
+    @keyframes iconGlow {
+      0% {
+        opacity: 0.7;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+  </style>
+
+  <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(0, 255, 0, 0.11) 0%, transparent 80%);
+      pointer-events: none;
+      z-index: 2;
     }
 
     html,
@@ -28,7 +193,7 @@
     }
 
     #player {
-      transform: scaleX(-1);
+      transform: scaleX(1);
       position: relative;
       width: 100%;
       height: 100%;
@@ -135,15 +300,25 @@
       transition: transform 0.3s ease;
     }
 
+
+
     .lyric {
       width: 100%;
       text-align: center;
-      font-size: 10vw;
-      line-height: 1.4;
+      font-size: 9vw;
+      line-height: 1.2;
       opacity: 0.2;
       color: #0f0;
-      transition: opacity 0.3s, font-size 0.3s, color 0.3s;
-      padding: 6px 0;
+      transition: opacity 0.3s ease, font-size 0.3s ease, color 0.3s ease;
+      padding: 15px 26px;
+      position: relative;
+      text-shadow:
+        0 0 1px #0f0,
+        0 0 2px #0f0,
+        0 0 3px rgba(0, 255, 0, 0.21),
+        1px 0px 2px rgba(0, 255, 0, 0.6),
+        -1px 0px 2px rgba(0, 255, 255, 0.6),
+        2px 0px 2px rgba(255, 0, 0, 0.4);
     }
 
 
@@ -152,8 +327,19 @@
       opacity: 1;
       font-size: 11vw;
       color: #0ff;
+      text-shadow:
+        0 0 1px #0ff,
+        0 0 2px #0ff,
+        0 0 3px rgba(0, 255, 255, 0.265),
+        1px 0px 2px rgba(0, 255, 0, 0.6),
+        -1px 0px 2px rgba(0, 255, 255, 0.6),
+        2px 0px 2px rgba(255, 0, 0, 0.4);
     }
 
+    /* 新的消失效果：逐渐淡出 */
+    .lyric.inactive {
+      visibility: hidden;
+    }
 
     /* 定义像素字体 */
     @font-face {
@@ -168,6 +354,56 @@
     .lyric {
       font-family: 'Pixel ZN', sans-serif;
     }
+
+    .lyrics-box {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: #0ff;
+      pointer-events: none;
+      will-change: transform, opacity;
+    }
+
+    @keyframes pixelSpread {
+      0% {
+        transform: scale(1) translate(0, 0);
+        opacity: 1;
+        filter: blur(0px);
+      }
+
+      100% {
+        transform: scale(1.8) translate(var(--dx), var(--dy));
+        opacity: 0;
+        filter: blur(1px);
+      }
+    }
+
+    .particle {
+      width: 4px;
+      height: 4px;
+      background: #0ff;
+      position: absolute;
+      animation: pixelSpread 1s ease-out forwards;
+    }
+
+    /* 扫描线模拟 */
+    .scanlines {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(to bottom,
+          rgba(0, 0, 0, 0) 0px,
+          rgba(0, 255, 0, 0.03) 2px,
+          rgba(0, 0, 0, 0.08) 4px);
+      z-index: 1;
+      pointer-events: none;
+      mix-blend-mode: overlay;
+    }
   </style>
 </head>
 
@@ -176,14 +412,91 @@
     <div class="noise"></div>
     <div class="highlight"></div>
     <div class="lyrics-container" id="lyricsContainer"></div>
+    <div id="crt-pause-overlay">
+      <div class="pause-icon"></div>
+    </div>
   </div>
 
+  <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
   <script>
-    window.onload = async () => {
-      const lyrics = await getLyrics();
-      initLyrics(lyrics);
-      startScroll(3000);
+    function showPauseOverlay() {
+      const overlay = document.getElementById('crt-pause-overlay');
+      overlay.classList.add('active');
+      // 确保动画生效
+      overlay.style.animation = '';
+    }
+
+    function hidePauseOverlay() {
+      const overlay = document.getElementById('crt-pause-overlay');
+      // 临时清除动画，使 opacity 过渡顺利
+      overlay.style.animation = 'none';
+      overlay.classList.remove('active');
+
+    }
+  </script>
+
+  <script>
+    let scrollTimeoutId = null; // 用于保存 setTimeout 的返回值
+    let offsetTime = -1;
+    const playerState = {
+      currLyricsIndex: null,
+      isPaused: false,
+      isWaiting: false,
+      lyricsData: null
     };
+
+
+    window.onload = () => {
+      pollPlaybackStatus()
+    };
+
+    function pollPlaybackStatus() {
+
+      // 使用 Socket.IO 建立连接
+      const socket = io("http://localhost:5588");
+
+      socket.on("connect", () => {
+        console.log("Socket.IO 连接成功！");
+      });
+
+      // 接收服务器推送的新歌词数据
+      socket.on("new_lyrics", (data) => {
+        try {
+          // JSON转化
+          data = JSON.parse(data)
+          playerState.lyricsData = data;
+          // 解析歌词数据，并初始化显示
+          const { currentLyricIndex, status, time } = parsingLyricsData(data);
+          initLyrics(data);
+
+          // 当前时间进度和接口返回播放进度差距过大时，重置滚动效果
+          if (Math.abs(time - (Date.now() - offsetTime)) > 200) {
+            // 重新滚动
+            console.log(`本次重设前偏差值：${Math.abs(time - (Date.now() - offsetTime))}`)
+            offsetTime = Date.now() - time;
+            ReScroll(currentLyricIndex);
+          }
+
+          if (status) {
+            playerState.isPaused = false;
+          } else {
+            showPauseOverlay();
+            playerState.isPaused = true;
+            offsetTime = -1;
+          }
+        } catch (e) {
+          console.error("解析 Socket.IO 消息失败:", e);
+        }
+      });
+
+      socket.on("disconnect", () => {
+        console.log("Socket.IO 连接已断开");
+      });
+
+      socket.on("connect_error", (error) => {
+        console.error("Socket.IO 连接错误:", error);
+      });
+    }
 
     async function getLyrics() {
       try {
@@ -191,53 +504,223 @@
         if (!response.ok) {
           throw new Error('网络响应错误');
         }
-        const data = await response.json();
-        console.log(data);
-        return data;  // 返回从fetch获取的歌词数据
+        playerState.lyricsData = await response.json();
       } catch (error) {
         console.error('获取歌词失败:', error);
-        return null;  // 如果出错，返回null
       }
     }
 
-    // 示例歌词
-    const sampleLyrics = {
-      lyrics: [
-        { time: 0, text: '这是第一行歌词' },
-        { time: 3, text: '这是第二行歌词' },
-        { time: 6, text: '这是第三行歌词' },
-        { time: 9, text: '这是第四行歌词' }
-      ]
-    };
+    // 计算每一行居中的偏移高度（会创建虚拟DOM计算）
+    function createLyricScroller(container, player) {
+      const lines = container.children;
+      const activeHeights = [];
+      const lineOffsets = [];
 
-    function initLyrics(data) {
-      console.log(data)
-      const container = document.getElementById('lyricsContainer');
-      container.innerHTML = '';
-      data.lyrics.forEach(item => {
-        const div = document.createElement('div');
-        div.className = 'lyric';
-        div.textContent = item.words;
-        container.appendChild(div);
-      });
+      // 1. 创建一个隐藏测量容器，跟 #player 一样宽
+      const measureBox = document.createElement('div');
+      measureBox.style.position = 'absolute';
+      measureBox.style.visibility = 'hidden';
+      measureBox.style.pointerEvents = 'none';
+      measureBox.style.width = player.clientWidth + 'px';
+      measureBox.style.fontFamily = getComputedStyle(lines[0]).fontFamily;
+      document.body.appendChild(measureBox);
+
+      // 2. 计算每一行在 active 状态下的真实高度
+      for (let i = 0; i < lines.length; i++) {
+        const clone = lines[i].cloneNode(true);
+        clone.classList.add('active');
+        clone.style.whiteSpace = 'normal'; // 确保换行
+        measureBox.appendChild(clone);
+        activeHeights[i] = clone.offsetHeight;
+      }
+
+      document.body.removeChild(measureBox); // 清除测量容器
+
+      // 3. 计算非 active 状态下的偏移量（仍然按原来的渲染顺序）
+      let total = 0;
+      for (let i = 0; i < lines.length; i++) {
+        lineOffsets[i] = total;
+        total += lines[i].offsetHeight;
+      }
+
+      // 4. 偏移计算使用真实 active 高度的一半进行居中
+      function getOffset(index) {
+        const center = player.clientHeight / 2;
+        const lineCenter = activeHeights[index] / 2;
+        return center - lineCenter - lineOffsets[index];
+      }
+
+      return { getOffset };
     }
 
-    function startScroll(interval = 3000) {
+    function parsingLyricsData(JsonData) {
+      // 计算当前歌词以及持续时间
+      let title = JsonData.title;
+      let artist = JsonData.artist;
+      let status = JsonData.status
+      let time = JsonData.time
+      let currProgressMs = JsonData.time;
+      let key = 0;
+      let interval = 0;
+      let currentLyricIndex = 0;
+      for (const item of JsonData.lyrics) {
+        if (item.startTimeMs >= currProgressMs) {
+          currentLyricIndex = key;
+          interval = item.startTimeMs - currProgressMs;
+          break; // 可以正常中断循环
+        }
+        key++;
+      }
+      return {
+        title, artist, status, currentLyricIndex, interval, time
+      }
+    }
+
+    function getInterval(index) {
+      let JsonData = playerState.lyricsData;
+      let currProgressMs = Date.now() - offsetTime;
+      return JsonData.lyrics[index].startTimeMs - currProgressMs;
+    }
+
+    function initLyrics(data) {
+      const container = document.getElementById('lyricsContainer');
+      if (!container.innerHTML) {
+        container.innerHTML = '';
+        data.lyrics.forEach(item => {
+          const div = document.createElement('div');
+          div.className = 'lyric';
+          div.textContent = item.words;
+          div.dataset.startTime = item.startTimeMs;
+          container.appendChild(div);
+        });
+      }
+    }
+
+
+    // 重新滚动，重设滚动方法以及偏移等效果
+    function ReScroll(lyricIndex) {
+      stopScroll();
+      // 定义变量
       const container = document.getElementById('lyricsContainer');
       const player = document.getElementById('player');
       const lines = container.children;
       if (!lines.length) return;
-      const lineHeight = lines[0].offsetHeight;
-      let index = 0;
+      // 重置样式
+      Array.from(lines).forEach(line => {
+        line.classList.remove('active');
+        line.classList.remove('inactive');
+      });
+
+      const { getOffset } = createLyricScroller(container, player);
+      playerState.currLyricsIndex = lyricIndex;
+      console.log(`ReScroll当前歌词下标：${lyricIndex},持续时间ms：${getInterval(lyricIndex)}`);
+      setTimeout(scroll, getInterval(lyricIndex % lines.length));
+
       function scroll() {
-        Array.from(lines).forEach(line => line.classList.remove('active'));
-        lines[index].classList.add('active');
-        const offset = -index * lineHeight + (player.clientHeight / 2 - lineHeight / 2);
+        let currIndex = playerState.currLyricsIndex;
+        if (currIndex == lines.length) {
+          return
+        }
+        if (playerState.isPaused) {
+          return
+        }
+        hidePauseOverlay();
+        console.log(currIndex + "  " + lines.length)
+        let interval = getInterval((currIndex + 1) % lines.length)
+        const lastIndex = currIndex === 0 ? lines.length - 1 : currIndex - 1;
+        const lastLine = lines[lastIndex];
+
+        // 添加爆炸粒子效果
+        if (lastLine) {
+          explodeLine(lastLine, container);
+          lastLine.classList.remove('active');
+          lastLine.classList.add('inactive');
+        }
+        // 添加新的 active
+        const currentLine = lines[currIndex];
+
+        currentLine.classList.add('active');
+        currentLine.classList.remove('inactive');  // 取消消失效果
+
+        const offset = getOffset(currIndex);
         container.style.transform = `translateY(${offset}px)`;
-        index = (index + 1) % lines.length;
+        currIndex = (currIndex + 1) % lines.length;
+        playerState.currLyricsIndex = currIndex;
+        // 关键：下一次滚动
+        scrollTimeoutId = setTimeout(scroll, interval);
       }
-      scroll();
-      setInterval(scroll, interval);
+    }
+
+    function stopScroll() {
+      if (scrollTimeoutId !== null) {
+        clearTimeout(scrollTimeoutId);
+        scrollTimeoutId = null;
+      }
+    }
+
+    function explodeLine(lineElement, container) {
+      const rect = lineElement.getBoundingClientRect();
+      const containerRect = container.getBoundingClientRect();
+
+      const offsetX = rect.left - containerRect.left;
+      const offsetY = rect.top - containerRect.top;
+
+      const text = lineElement.textContent;
+      const fontSize = parseInt(window.getComputedStyle(lineElement).fontSize);
+      const spacing = 8;
+
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      const font = window.getComputedStyle(lineElement).fontFamily;
+      canvas.width = rect.width;
+      canvas.height = rect.height;
+      ctx.font = `${fontSize}px ${font}`;
+      ctx.fillStyle = "#0ff";
+      ctx.fillText(text, 0, fontSize);
+
+      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const data = imageData.data;
+
+      const particles = [];
+      for (let y = 0; y < canvas.height; y += spacing) {
+        for (let x = 0; x < canvas.width; x += spacing) {
+          const index = (y * canvas.width + x) * 4;
+          const alpha = data[index + 3];
+          if (alpha > 128) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = `${offsetX + x}px`;
+            particle.style.top = `${offsetY + y}px`;
+            container.appendChild(particle);
+
+            const dx = (Math.random() - 0.5) * 100;
+            const dy = (Math.random() - 0.5) * 100;
+            const scale = Math.random() * 1.5 + 0.5;
+            const rotate = Math.random() * 360;
+
+            particle.animate([
+              {
+                transform: 'translate(0, 0) scale(1)',
+                opacity: 1
+              },
+              {
+                transform: `translate(${dx}px, ${dy}px) scale(${scale}) rotate(${rotate}deg)`,
+                opacity: 0
+              }
+            ], {
+              duration: 800 + Math.random() * 400,
+              easing: 'ease-out',
+              fill: 'forwards'
+            });
+
+            particles.push(particle);
+          }
+        }
+      }
+
+      setTimeout(() => {
+        particles.forEach(p => p.remove());
+      }, 1500);
     }
 
 

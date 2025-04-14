@@ -418,6 +418,8 @@
   </div>
 
   <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+  <script src="./js/lyric-pars.js"></script>
+  <script src="./js/utils.js"></script>
   <script>
     function showPauseOverlay() {
       const overlay = document.getElementById('crt-pause-overlay');
@@ -436,13 +438,13 @@
   </script>
 
   <script>
+    const PROGRESS_MS_OFFSET = 300; // 进度条滚动过快过慢调整至。
     let scrollTimeoutId = null; // 用于保存 setTimeout 的返回值
-    let offsetTime = -1;
+    let offsetTime = -1; // 延迟修正参数
+    // 状态控制
     const playerState = {
+      id: null,
       currLyricsIndex: null,
-      isPaused: false,
-      isWaiting: false,
-      lyricsData: null
     };
 
 
@@ -464,25 +466,32 @@
         try {
           // JSON转化
           data = JSON.parse(data)
-          playerState.lyricsData = data;
           // 解析歌词数据，并初始化显示
-          const { currentLyricIndex, status, time } = parsingLyricsData(data);
-          initLyrics(data);
+          LyricState.update(data); // 更新数据
+          if (LyricState.get().id != playerState.id) {
+            // 初始化歌词DOM
+            console.log("初始化歌词！")
+            initLyrics(LyricState.get().lyrics);
+            // 记录当前播放的歌曲信息
+            playerState.id = LyricState.get().id
+          } else {
+            console.log(`未进行初始化！解析ID:${LyricState.get().id},上一次初始化ID:${playerState.id}`)
+          }
 
           // 当前时间进度和接口返回播放进度差距过大时，重置滚动效果
+          let time = LyricState.get().time;
           if (Math.abs(time - (Date.now() - offsetTime)) > 200) {
             // 重新滚动
             console.log(`本次重设前偏差值：${Math.abs(time - (Date.now() - offsetTime))}`)
             offsetTime = Date.now() - time;
-            ReScroll(currentLyricIndex);
+            ReScroll(LyricState.get().currentLyricIndex);
           }
 
-          if (status) {
-            playerState.isPaused = false;
-          } else {
+          if (!LyricState.get().status) {
             showPauseOverlay();
-            playerState.isPaused = true;
             offsetTime = -1;
+          } else {
+            hidePauseOverlay();
           }
         } catch (e) {
           console.error("解析 Socket.IO 消息失败:", e);
@@ -496,18 +505,6 @@
       socket.on("connect_error", (error) => {
         console.error("Socket.IO 连接错误:", error);
       });
-    }
-
-    async function getLyrics() {
-      try {
-        const response = await fetch('http://localhost:5588/latest_lyrics');
-        if (!response.ok) {
-          throw new Error('网络响应错误');
-        }
-        playerState.lyricsData = await response.json();
-      } catch (error) {
-        console.error('获取歌词失败:', error);
-      }
     }
 
     // 计算每一行居中的偏移高度（会创建虚拟DOM计算）
@@ -553,47 +550,22 @@
       return { getOffset };
     }
 
-    function parsingLyricsData(JsonData) {
-      // 计算当前歌词以及持续时间
-      let title = JsonData.title;
-      let artist = JsonData.artist;
-      let status = JsonData.status
-      let time = JsonData.time
-      let currProgressMs = JsonData.time;
-      let key = 0;
-      let interval = 0;
-      let currentLyricIndex = 0;
-      for (const item of JsonData.lyrics) {
-        if (item.startTimeMs >= currProgressMs) {
-          currentLyricIndex = key;
-          interval = item.startTimeMs - currProgressMs;
-          break; // 可以正常中断循环
-        }
-        key++;
-      }
-      return {
-        title, artist, status, currentLyricIndex, interval, time
-      }
-    }
-
     function getInterval(index) {
-      let JsonData = playerState.lyricsData;
+      let lyrics = LyricState.get().lyrics;
       let currProgressMs = Date.now() - offsetTime;
-      return JsonData.lyrics[index].startTimeMs - currProgressMs;
+      return lyrics[index].startTimeMs - currProgressMs;
     }
 
-    function initLyrics(data) {
+    function initLyrics(lyrics) {
       const container = document.getElementById('lyricsContainer');
-      if (!container.innerHTML) {
-        container.innerHTML = '';
-        data.lyrics.forEach(item => {
-          const div = document.createElement('div');
-          div.className = 'lyric';
-          div.textContent = item.words;
-          div.dataset.startTime = item.startTimeMs;
-          container.appendChild(div);
-        });
-      }
+      container.innerHTML = '';
+      lyrics.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'lyric';
+        div.textContent = item.words;
+        div.dataset.startTime = item.startTimeMs;
+        container.appendChild(div);
+      });
     }
 
 
@@ -612,22 +584,34 @@
       });
 
       const { getOffset } = createLyricScroller(container, player);
-      playerState.currLyricsIndex = lyricIndex;
-      console.log(`ReScroll当前歌词下标：${lyricIndex},持续时间ms：${getInterval(lyricIndex)}`);
-      setTimeout(scroll, getInterval(lyricIndex % lines.length));
+      if (lyricIndex == 0) {
+        // 第一句需要慢慢等待，一般歌词前奏比较长。直接高亮影响体验
+        playerState.currLyricsIndex = 0;
+        setTimeout(scroll, getInterval(0));
+      } else {
+        playerState.currLyricsIndex = lyricIndex - 1;
+        // 其他ReScroll直接高亮，一般都会跳转到有歌词的地方。
+        setTimeout(scroll, 0);
+      }
+      // 重置到当前歌词
+      container.style.transform = `translateY(${getOffset(playerState.currLyricsIndex)}px)`;
+
 
       function scroll() {
         let currIndex = playerState.currLyricsIndex;
-        if (currIndex == lines.length) {
+        if (currIndex == LyricState.get().lyrics.length) {
           return
         }
-        if (playerState.isPaused) {
+        // 暂停终止
+        if (!LyricState.get().status) {
           return
         }
-        hidePauseOverlay();
-        console.log(currIndex + "  " + lines.length)
-        let interval = getInterval((currIndex + 1) % lines.length)
-        const lastIndex = currIndex === 0 ? lines.length - 1 : currIndex - 1;
+        // 到头了也终止
+        if (currIndex > LyricState.get().lyrics.length) {
+          return
+        }
+        let interval = getInterval(Utils.mod(currIndex + 1, LyricState.get().lyrics.length)) - PROGRESS_MS_OFFSET
+        const lastIndex = currIndex === 0 ? LyricState.get().lyrics.length - 1 : currIndex - 1;
         const lastLine = lines[lastIndex];
 
         // 添加爆炸粒子效果
@@ -644,7 +628,7 @@
 
         const offset = getOffset(currIndex);
         container.style.transform = `translateY(${offset}px)`;
-        currIndex = (currIndex + 1) % lines.length;
+        currIndex = currIndex + 1;
         playerState.currLyricsIndex = currIndex;
         // 关键：下一次滚动
         scrollTimeoutId = setTimeout(scroll, interval);

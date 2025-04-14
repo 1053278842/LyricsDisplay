@@ -80,6 +80,8 @@ def get_lyrics(music_canonical):
     except NoLyricsException as e:
         print("get_lyrics未找到歌词数据! NoLyricsException:",e)
         resultJson = None
+    except Exception as e:
+        resultJson = None
     return resultJson
 
 def fetch_playback_state(is_local):
@@ -151,6 +153,7 @@ def fetch_playback_state(is_local):
             standardLyricsObj.set_time(curr_music_progress_ms)
             standardLyricsObj.set_image(curr_music_image_url)
             standardLyricsObj.set_status(is_playing)
+            standardLyricsObj.set_id(music_canonical)
             standardLyricsObj.to_json()
             save_local(standardLyricsObj.to_dict(),"spotify_json")
         # 无论如何都会推送

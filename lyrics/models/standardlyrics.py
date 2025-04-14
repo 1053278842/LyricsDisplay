@@ -1,7 +1,8 @@
 import json
 
 class StandardLyrics:
-    def __init__(self, title: str, artist: str, image:str,time:str,status:bool,lyrics: list):
+    def __init__(self,id:str, title: str, artist: str, image:str,time:str,status:bool,lyrics: list):
+        self.id = id
         self.title = title
         self.artist = artist
         self.lyrics = lyrics
@@ -11,6 +12,7 @@ class StandardLyrics:
 
     def to_dict(self):
         return {
+            "id":self.id,
             "title": self.title,
             "artist": self.artist,
             "time":self.time,
@@ -38,3 +40,5 @@ class StandardLyrics:
     def set_status(self,status):
         self.status= status
         
+    def set_id(self,id):
+        self.id = id

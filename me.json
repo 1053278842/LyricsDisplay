@@ -1,40 +1,33 @@
 {
     "device": {
-        "id": "306f20a64de9f43bbe14385b3e3149fe3456ba0b",
+        "id": "0a7afb5012669df2f52e6efa0d657d5dc1a013a8",
         "is_active": true,
         "is_private_session": false,
         "is_restricted": false,
         "name": "Web Player (Chrome)",
         "supports_volume": true,
         "type": "Computer",
-        "volume_percent": 62
+        "volume_percent": 100
     },
     "shuffle_state": false,
     "smart_shuffle": false,
-    "repeat_state": "off",
-    "timestamp": 1744627799137,
-    "context": {
-        "external_urls": {
-            "spotify": "https://open.spotify.com/playlist/37i9dQZF1E38SbXOq98sPR"
-        },
-        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1E38SbXOq98sPR",
-        "type": "playlist",
-        "uri": "spotify:playlist:37i9dQZF1E38SbXOq98sPR"
-    },
-    "progress_ms": 60121,
+    "repeat_state": "context",
+    "timestamp": 1744653738328,
+    "context": null,
+    "progress_ms": 21592,
     "item": {
         "album": {
             "album_type": "album",
             "artists": [
                 {
                     "external_urls": {
-                        "spotify": "https://open.spotify.com/artist/2elBjNSdBE2Y3f0j1mjrql"
+                        "spotify": "https://open.spotify.com/artist/2KwZ9xnULczo0Z7Y7Bp57R"
                     },
-                    "href": "https://api.spotify.com/v1/artists/2elBjNSdBE2Y3f0j1mjrql",
-                    "id": "2elBjNSdBE2Y3f0j1mjrql",
-                    "name": "Jay Chou",
+                    "href": "https://api.spotify.com/v1/artists/2KwZ9xnULczo0Z7Y7Bp57R",
+                    "id": "2KwZ9xnULczo0Z7Y7Bp57R",
+                    "name": "Zhao Lei",
                     "type": "artist",
-                    "uri": "spotify:artist:2elBjNSdBE2Y3f0j1mjrql"
+                    "uri": "spotify:artist:2KwZ9xnULczo0Z7Y7Bp57R"
                 }
             ],
             "available_markets": [
@@ -88,6 +81,7 @@
                 "ES",
                 "SE",
                 "CH",
+                "TW",
                 "TR",
                 "UY",
                 "US",
@@ -116,6 +110,7 @@
                 "JO",
                 "PS",
                 "IN",
+                "BY",
                 "KZ",
                 "MD",
                 "UA",
@@ -167,6 +162,7 @@
                 "NE",
                 "PW",
                 "PG",
+                "PR",
                 "WS",
                 "SM",
                 "ST",
@@ -175,7 +171,6 @@
                 "SL",
                 "SB",
                 "KN",
-                "LC",
                 "VC",
                 "SR",
                 "TL",
@@ -222,44 +217,44 @@
                 "XK"
             ],
             "external_urls": {
-                "spotify": "https://open.spotify.com/album/4stTYRQWkrNj9BOJCwuXUT"
+                "spotify": "https://open.spotify.com/album/6EKEsAtmr1J4vTw7enUBXv"
             },
-            "href": "https://api.spotify.com/v1/albums/4stTYRQWkrNj9BOJCwuXUT",
-            "id": "4stTYRQWkrNj9BOJCwuXUT",
+            "href": "https://api.spotify.com/v1/albums/6EKEsAtmr1J4vTw7enUBXv",
+            "id": "6EKEsAtmr1J4vTw7enUBXv",
             "images": [
                 {
                     "height": 640,
-                    "url": "https://i.scdn.co/image/ab67616d0000b273283111b93a25fffd9d6f050d",
+                    "url": "https://i.scdn.co/image/ab67616d0000b273bed6668262dfd42c27cfc88a",
                     "width": 640
                 },
                 {
                     "height": 300,
-                    "url": "https://i.scdn.co/image/ab67616d00001e02283111b93a25fffd9d6f050d",
+                    "url": "https://i.scdn.co/image/ab67616d00001e02bed6668262dfd42c27cfc88a",
                     "width": 300
                 },
                 {
                     "height": 64,
-                    "url": "https://i.scdn.co/image/ab67616d00004851283111b93a25fffd9d6f050d",
+                    "url": "https://i.scdn.co/image/ab67616d00004851bed6668262dfd42c27cfc88a",
                     "width": 64
                 }
             ],
-            "name": "最偉大的作品",
-            "release_date": "2022-07-15",
+            "name": "趙小雷",
+            "release_date": "2011-08-07",
             "release_date_precision": "day",
             "total_tracks": 12,
             "type": "album",
-            "uri": "spotify:album:4stTYRQWkrNj9BOJCwuXUT"
+            "uri": "spotify:album:6EKEsAtmr1J4vTw7enUBXv"
         },
         "artists": [
             {
                 "external_urls": {
-                    "spotify": "https://open.spotify.com/artist/2elBjNSdBE2Y3f0j1mjrql"
+                    "spotify": "https://open.spotify.com/artist/2KwZ9xnULczo0Z7Y7Bp57R"
                 },
-                "href": "https://api.spotify.com/v1/artists/2elBjNSdBE2Y3f0j1mjrql",
-                "id": "2elBjNSdBE2Y3f0j1mjrql",
-                "name": "Jay Chou",
+                "href": "https://api.spotify.com/v1/artists/2KwZ9xnULczo0Z7Y7Bp57R",
+                "id": "2KwZ9xnULczo0Z7Y7Bp57R",
+                "name": "Zhao Lei",
                 "type": "artist",
-                "uri": "spotify:artist:2elBjNSdBE2Y3f0j1mjrql"
+                "uri": "spotify:artist:2KwZ9xnULczo0Z7Y7Bp57R"
             }
         ],
         "available_markets": [
@@ -313,6 +308,7 @@
             "ES",
             "SE",
             "CH",
+            "TW",
             "TR",
             "UY",
             "US",
@@ -341,6 +337,7 @@
             "JO",
             "PS",
             "IN",
+            "BY",
             "KZ",
             "MD",
             "UA",
@@ -392,6 +389,7 @@
             "NE",
             "PW",
             "PG",
+            "PR",
             "WS",
             "SM",
             "ST",
@@ -400,7 +398,6 @@
             "SL",
             "SB",
             "KN",
-            "LC",
             "VC",
             "SR",
             "TL",
@@ -447,23 +444,23 @@
             "XK"
         ],
         "disc_number": 1,
-        "duration_ms": 244046,
+        "duration_ms": 220173,
         "explicit": false,
         "external_ids": {
-            "isrc": "TWK972201202"
+            "isrc": "CNZ882302266"
         },
         "external_urls": {
-            "spotify": "https://open.spotify.com/track/1dh3c1MESr5ibnZcMWbUK1"
+            "spotify": "https://open.spotify.com/track/4pEzSj82MYLrtNtvJBG0eG"
         },
-        "href": "https://api.spotify.com/v1/tracks/1dh3c1MESr5ibnZcMWbUK1",
-        "id": "1dh3c1MESr5ibnZcMWbUK1",
+        "href": "https://api.spotify.com/v1/tracks/4pEzSj82MYLrtNtvJBG0eG",
+        "id": "4pEzSj82MYLrtNtvJBG0eG",
         "is_local": false,
-        "name": "最偉大的作品",
-        "popularity": 53,
+        "name": "趙小雷",
+        "popularity": 18,
         "preview_url": null,
-        "track_number": 2,
+        "track_number": 5,
         "type": "track",
-        "uri": "spotify:track:1dh3c1MESr5ibnZcMWbUK1"
+        "uri": "spotify:track:4pEzSj82MYLrtNtvJBG0eG"
     },
     "currently_playing_type": "track",
     "actions": {

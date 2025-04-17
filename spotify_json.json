@@ -1,412 +1,304 @@
 {
-    "id": "1dh3c1MESr5ibnZcMWbUK1",
-    "title": "最偉大的作品",
-    "artist": "Jay Chou",
-    "time": 60121,
+    "id": "3o9uL1uNPcen0lItb1Hw3m",
+    "title": "Hang Me, Oh Hang Me",
+    "artist": "Oscar Isaac",
+    "time": 265023,
     "lyrics": [
         {
-            "startTimeMs": "14117",
-            "words": "哥穿著復古西裝",
+            "startTimeMs": "0",
+            "words": "Hang me, oh hand me",
             "syllables": [],
             "endTimeMs": "0"
         },
         {
-            "startTimeMs": "15237",
-            "words": "拿著手杖 彈著魔法樂章",
+            "startTimeMs": "0",
+            "words": "I'll be dead and gone",
             "syllables": [],
             "endTimeMs": "0"
         },
         {
-            "startTimeMs": "17495",
-            "words": "漫步走在 莎瑪麗丹",
+            "startTimeMs": "0",
+            "words": "Hang me, oh hang me",
             "syllables": [],
             "endTimeMs": "0"
         },
         {
-            "startTimeMs": "18990",
-            "words": "被歲月 翻新的時光",
+            "startTimeMs": "0",
+            "words": "I'll be dead and gone",
             "syllables": [],
             "endTimeMs": "0"
         },
         {
-            "startTimeMs": "20507",
-            "words": "望不到邊界的帝國",
+            "startTimeMs": "0",
+            "words": "Wouldn't mind the hanging",
             "syllables": [],
             "endTimeMs": "0"
         },
         {
-            "startTimeMs": "21914",
-            "words": "用音符築成的王座",
+            "startTimeMs": "0",
+            "words": "But the layin' in a grave so",
             "syllables": [],
             "endTimeMs": "0"
         },
         {
-            "startTimeMs": "23484",
-            "words": "我用琴鍵穿梭 1920錯過的不朽",
+            "startTimeMs": "0",
+            "words": "long, poor boy",
             "syllables": [],
             "endTimeMs": "0"
         },
         {
-            "startTimeMs": "26172",
+            "startTimeMs": "0",
+            "words": "I been all around this world",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "I been all 'round cape Gigardeau",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "Parts of Arkansas",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "All around cape Giradeau",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "Parts of Arkansas",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "Got so god damn hungry",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "I could hide behind a straw,",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "poor boy",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "I been all around this world",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "Went up on a mountain",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "There i made my stand",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "Went up on a mountain",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "There i made my stand",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "Rifle on my shoulder",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "And a dagger in my hand, poor",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "boy",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "I been all around this world",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "So hang me, oh hang me",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "I'll be dead and gone",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "Hang me, oh hang me",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "And i'll be dead and gone",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "I wouldn't mind the hanging",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "But the layin' in a grave so",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "long, poor boy",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "I been all around this world",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "Put the rope around my neck",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "And hung me up so high",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "Put the rope around my neck",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "Hung me up so high",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "Last words i heard 'em say",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "Won't be long now for you die,",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "poor boy",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "I been all around this world",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "So hang me, oh hang men",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "I'll be dead and gone",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "Hang me, oh hang me",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "I'll be dead and gone",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "I wouldn't mind the hanging",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "But the layin' in a grave, poor",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "boy",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
+            "words": "I been all around this world",
+            "syllables": [],
+            "endTimeMs": "0"
+        },
+        {
+            "startTimeMs": "0",
             "words": "",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "26172",
-            "words": "啊 偏執是那馬格利特",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "27962",
-            "words": "被我變出的蘋果",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "29503",
-            "words": "超現實的是我",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "30641",
-            "words": "還是他原本想畫的小丑",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "32496",
-            "words": "不是煙斗的煙斗",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "33624",
-            "words": "臉上的鴿子沒有飛走",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "35482",
-            "words": "請你記得 他是個畫家",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "36990",
-            "words": "不是 什麼調酒",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "37550",
-            "words": "",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "37550",
-            "words": "達利翹鬍是誰給他的思索",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "40926",
-            "words": "彎了湯匙借你靈感不用還我",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "43800",
-            "words": "融化的是牆上時鐘還是乳酪",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "46750",
-            "words": "龍蝦電話那頭你都不回我",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "49249",
-            "words": "",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "49679",
-            "words": "浪蕩是世俗畫作裡最自由不拘的水墨",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "52618",
-            "words": "花都優雅的雙腿是這宇宙筆下的一抹",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "55572",
-            "words": "飄洋過海的鄉愁種在一無所有的溫柔",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "58618",
-            "words": "寂寞的枝頭才能長出 常玉要的花朵",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "60943",
-            "words": "",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "60943",
-            "words": "小船靜靜往返 馬諦斯的海岸",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "66876",
-            "words": "星空下的夜晚 交給梵谷點燃",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "72853",
-            "words": "夢美的太短暫 孟克橋上吶喊",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "78867",
-            "words": "這世上的熱鬧 出自孤單",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "84173",
-            "words": "♪",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "144394",
-            "words": "花園流淌的陽光 空氣搖晃著花香",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "147399",
-            "words": "我請莫內幫個忙 能不能來張自畫像",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "150348",
-            "words": "大師眺望著遠方 研究色彩的形狀",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "153405",
-            "words": "突然回頭要我說說我對我自己的印象",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "156378",
-            "words": "",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "156378",
-            "words": "世代的狂 音樂的王",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "157862",
-            "words": "萬物臣服在我樂章",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "159383",
-            "words": "路還在闖 我還在創",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "160769",
-            "words": "指尖的旋律在渴望",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "162348",
-            "words": "世代的狂 音樂的王",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "163862",
-            "words": "我想我不需要畫框",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "164966",
-            "words": "它框不住 琴鍵的速度",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "166493",
-            "words": "我的音符 全部是未來藝術",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "168428",
-            "words": "",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "168671",
-            "words": "日出在印象的港口來回",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "171709",
-            "words": "光線喚醒了睡著的花葉",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "174694",
-            "words": "草地正為一場小雨歡悅",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "177668",
-            "words": "我們彼此深愛這個世界",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "180744",
-            "words": "停在康橋上的那隻蝴蝶",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "183734",
-            "words": "飛往午夜河畔的翡冷翠",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "186719",
-            "words": "遺憾被偶然藏在了詩頁",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "189691",
-            "words": "是微笑都透不進的世界",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "192247",
-            "words": "",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "192313",
-            "words": "巴黎的鱗爪 感傷的文法",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "193922",
-            "words": "要用音樂翻閱",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "195365",
-            "words": "晚風的燈下 旅人的花茶",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "196888",
-            "words": "我換成了咖啡",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "198337",
-            "words": "之後他就 愛上了苦澀這個複雜詞彙",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "201367",
-            "words": "因為這才是揮手 向雲彩道別的滋味",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "202965",
-            "words": "",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "202965",
-            "words": "小船靜靜往返 馬諦斯的海岸",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "208771",
-            "words": "星空下的夜晚 交給梵谷點燃",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "214780",
-            "words": "夢美的太短暫 孟克橋上吶喊",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "220833",
-            "words": "這世上的熱鬧 出自孤單",
-            "syllables": [],
-            "endTimeMs": "0"
-        },
-        {
-            "startTimeMs": "226615",
-            "words": "♪",
             "syllables": [],
             "endTimeMs": "0"
         }
     ],
-    "image": "https://i.scdn.co/image/ab67616d0000b273283111b93a25fffd9d6f050d",
+    "image": "https://i.scdn.co/image/ab67616d0000b2736dedfb8bb375b661f56881a2",
     "status": true
 }

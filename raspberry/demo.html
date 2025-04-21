@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>歌词播放器</title>
+    <style>
+        .crt-image-wrapper {
+            position: relative;
+
+            overflow: hidden;
+            border: 2px solid #00E5EE;
+            box-shadow: 0 0 10px #00E5EE;
+            animation: shake 0.2s infinite alternate;
+        }
+
+        .crt-image {
+            width: 100%;
+            height: 100%;
+            display: block;
+            filter: contrast(130%) brightness(110%) saturate(1.2);
+        }
+
+        .scanlines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(to bottom,
+                    rgba(0, 0, 0, 0.15),
+                    rgba(0, 0, 0, 0.15) 1px,
+                    transparent 1px,
+                    transparent 2px);
+            pointer-events: none;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translateY(0px);
+            }
+
+            100% {
+                transform: translateY(0.3px);
+            }
+        }
+    </style>
+</head>
+
+<body class="crt">
+    <div class="crt-image-wrapper">
+        <img src="https://i.scdn.co/image/ab67616d0000b273283111b93a25fffd9d6f050d" class="crt-image" />
+        <div class="scanlines"></div>
+    </div>
+
+</body>
+
+</html>

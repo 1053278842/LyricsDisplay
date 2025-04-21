@@ -438,7 +438,7 @@
   </script>
 
   <script>
-    const PROGRESS_MS_OFFSET = 300; // 进度条滚动过快过慢调整至。
+    let PROGRESS_MS_OFFSET = 300; // 进度条滚动调整值。抵消接口传输过程中因网络等问题，导致的速度过慢
     let scrollTimeoutId = null; // 用于保存 setTimeout 的返回值
     let offsetTime = -1; // 延迟修正参数
     // 状态控制
@@ -468,28 +468,27 @@
           data = JSON.parse(data)
           // 解析歌词数据，并初始化显示
           LyricState.update(data); // 更新数据
+          // 记录当前时间
+          let time = LyricState.get().time;
+          offsetTime = Date.now() - time;
           if (LyricState.get().id != playerState.id) {
             // 初始化歌词DOM
-            console.log("初始化歌词！")
+            console.log(`=================${LyricState.get().id}======================`)
+            console.log("初始化 歌词!")
             initLyrics(LyricState.get().lyrics);
             // 记录当前播放的歌曲信息
             playerState.id = LyricState.get().id
+            // 输出
+            console.log(`初始化 开始时间:${Utils.formatMs(LyricState.get().time)}`);
+            console.log(`初始化 当前时间:${Utils.formatMs(Date.now() - offsetTime)}`)
           } else {
-            console.log(`未进行初始化！解析ID:${LyricState.get().id},上一次初始化ID:${playerState.id}`)
+            console.log(`===同步状态===`)
           }
-
-          // 当前时间进度和接口返回播放进度差距过大时，重置滚动效果
-          let time = LyricState.get().time;
-          if (Math.abs(time - (Date.now() - offsetTime)) > 200) {
-            // 重新滚动
-            console.log(`本次重设前偏差值：${Math.abs(time - (Date.now() - offsetTime))}`)
-            offsetTime = Date.now() - time;
-            ReScroll(LyricState.get().currentLyricIndex);
-          }
+          ReScroll(LyricState.get().currentLyricIndex);
 
           if (!LyricState.get().status) {
             showPauseOverlay();
-            offsetTime = -1;
+            offsetTime = Date.now() - time;
           } else {
             hidePauseOverlay();
           }
@@ -553,6 +552,7 @@
     function getInterval(index) {
       let lyrics = LyricState.get().lyrics;
       let currProgressMs = Date.now() - offsetTime;
+
       return lyrics[index].startTimeMs - currProgressMs;
     }
 
@@ -587,11 +587,11 @@
       if (lyricIndex == 0) {
         // 第一句需要慢慢等待，一般歌词前奏比较长。直接高亮影响体验
         playerState.currLyricsIndex = 0;
-        setTimeout(scroll, getInterval(0));
+        scrollTimeoutId = setTimeout(scroll, getInterval(0));
       } else {
         playerState.currLyricsIndex = lyricIndex - 1;
         // 其他ReScroll直接高亮，一般都会跳转到有歌词的地方。
-        setTimeout(scroll, 0);
+        scrollTimeoutId = setTimeout(scroll, 0);
       }
       // 重置到当前歌词
       container.style.transform = `translateY(${getOffset(playerState.currLyricsIndex)}px)`;
@@ -599,6 +599,8 @@
 
       function scroll() {
         let currIndex = playerState.currLyricsIndex;
+        console.log(`歌词: ${LyricState.get().lyrics[currIndex].words} \n开始时间: ${Utils.formatMs(LyricState.get().lyrics[currIndex].startTimeMs)} \n当前时间: ${Utils.formatMs(Date.now() - offsetTime)}`);
+        //console.log(`offset:${Utils.formatMs(offsetTime)}`)
         if (currIndex == LyricState.get().lyrics.length) {
           return
         }
@@ -636,7 +638,7 @@
     }
 
     function stopScroll() {
-      if (scrollTimeoutId !== null) {
+      if (scrollTimeoutId != null) {
         clearTimeout(scrollTimeoutId);
         scrollTimeoutId = null;
       }

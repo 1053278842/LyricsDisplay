@@ -13,7 +13,14 @@ const LyricInfo = {
     data: { ...LyricInfo },
   
     update(json) {
-      const { id='',title = '', artist = '', status = '', time = 0, lyrics = [] } = json;
+      var { id='',title = '', artist = '', status = '', time = 0, lyrics = [] } = json;
+      if(lyrics == null && id == null &&time != null && status !=null){
+        //说明当前传递的仅仅是状态
+        id = this.data.id;  
+        title = this.data.title;
+        artist = this.data.artist;
+        lyrics = this.data.lyrics;
+      }
       let currentLyricIndex = 0;
       let interval = 0;
   

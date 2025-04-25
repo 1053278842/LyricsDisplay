@@ -33,3 +33,9 @@ class CommonUtil:
             "lyrics": lyrics
         }
         return json_data
+    
+    def format_lrc(ms: int) -> str:
+        minutes = ms // 60000
+        seconds = (ms % 60000) // 1000
+        hundredths = (ms % 1000) // 10  # 保留两位小数（百分之一秒）
+        return f"[{minutes:02}:{seconds:02}.{hundredths:02}]"

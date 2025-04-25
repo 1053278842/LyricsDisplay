@@ -42,3 +42,11 @@ class StandardLyrics:
         
     def set_id(self,id):
         self.id = id
+    def get_id(self):
+        return self.id
+        
+    def set_lyrics(self,lyrics):
+        self.lyrics = lyrics
+        
+    def get_lyrics(self):
+        return self.lyrics

@@ -12,9 +12,7 @@ def upload_lyrics():
     try:
         data = request.json  # 获取客户端上传的歌词 JSON 数据
         print("歌曲上传成功!")
-        # 将数据保存到文件（可选）
-        with open("lyrics.json", "w", encoding="utf-8") as f:
-            json.dump(data, f, ensure_ascii=False, indent=4)
+        print(data)
         # 将数据广播给所有已连接的 WebSocket 客户端
         socketio.emit('new_lyrics', data)
         return jsonify({"status": "success", "message": "Lyrics received and broadcast!"})

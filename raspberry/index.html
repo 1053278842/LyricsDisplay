@@ -578,9 +578,11 @@
       const lines = container.children;
       if (!lines.length) return;
       // 重置样式
-      Array.from(lines).forEach(line => {
-        line.classList.remove('active');
-        line.classList.remove('inactive');
+      Array.from(lines).forEach((line, key) => {
+        if (key >= lyricIndex) {
+          line.classList.remove('active');
+          line.classList.remove('inactive');
+        }
       });
 
       const { getOffset } = createLyricScroller(container, player);

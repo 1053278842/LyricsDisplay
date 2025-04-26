@@ -9,16 +9,11 @@ class KugouLyricManager():
       self.lyrics = None
       self.id = None
         
-   def send_kugou_lyrics(self,id,position,image,status,title,artist,duration):
+   def send_kugou_lyrics(self,hostname,id,position,image,status,title,artist,duration):
       start = time.time()  # 秒（float）
-      
-      if(True):
-         # 树莓派默认37
-         # 本地默认 33
-         # pi_comm = RaspberryPiComm(hostname="192.168.1.37")
-         pi_comm = RaspberryPiComm(hostname="192.168.1.37")
-      else:
-         pi_comm = RaspberryPiComm()
+
+      pi_comm = RaspberryPiComm(hostname=hostname)
+
          
       kugouFactory =  LyricsAdapterFactory.get_adapter(Sources.Kugou)
       param = {
@@ -46,7 +41,7 @@ class KugouLyricManager():
       except Exception as e:
          print("//TODO 通信错误，想办法激活树莓派",e)
       
-   def sync_play_state(self,status,position):
+   def sync_play_state(self,hostname,status,position):
       kugouFactory =  LyricsAdapterFactory.get_adapter(Sources.Kugou)
       standardLyricsObj = kugouFactory.convert(None)
       standardLyricsObj.set_time(position)
@@ -55,14 +50,8 @@ class KugouLyricManager():
       standardLyricsObj.set_lyrics(self.lyrics)
       standardLyricsObj.set_id(self.id)
       json = standardLyricsObj.to_json()
-      print(json)
-      if(True):
-         # 树莓派默认37
-         # 本地默认 33
-         # pi_comm = RaspberryPiComm(hostname="192.168.1.37")
-         pi_comm = RaspberryPiComm(hostname="192.168.1.37")
-      else:
-         pi_comm = RaspberryPiComm()
+      
+      pi_comm = RaspberryPiComm(hostname=hostname)
       try:
          pi_comm.send_lyrics(standardLyricsObj.to_json())  
          # RaspberryPiComm(hostname="192.168.1.33").send_lyrics(standardLyricsObj.to_json())    

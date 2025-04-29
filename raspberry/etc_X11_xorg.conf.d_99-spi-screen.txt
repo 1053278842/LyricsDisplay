@@ -1,0 +1,24 @@
+Section "Device"
+    Identifier "SPIFB"
+    Driver "fbdev"
+    Option "fbdev" "/dev/fb1"
+    Option "ShadowFB" "off"
+EndSection
+
+Section "Screen"
+    Identifier "Screen0"
+    Device "SPIFB"
+    Monitor "Monitor0"
+    DefaultDepth 16
+    SubSection "Display"
+        Depth 16
+        Modes "240x240"
+        Virtual 240 240
+    EndSubSection
+EndSection
+
+Section "Monitor"
+    Identifier "Monitor0"
+    Modeline "240x240" 5.0 240 244 248 264 240 242 245 260 -HSync +VSync
+    Option "PreferredMode" "240x240"
+EndSection

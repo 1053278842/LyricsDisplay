@@ -1,0 +1,19 @@
+Section "ServerFlags"
+    Option "BlankTime" "0"
+    Option "StandbyTime" "0"
+    Option "SuspendTime" "0"
+    Option "OffTime" "0"
+    Option "DontVTSwitch" "true"
+    Option "DisableVidModeExtension" "true"
+    Option "NoPM" "true"
+EndSection
+
+Section "Monitor"
+    Identifier     "HDMI-1"
+    Option         "DPMS" "false"
+EndSection
+
+Section "Screen"
+    Identifier "Default Screen"
+    Monitor    "HDMI-1"
+EndSection

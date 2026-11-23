@@ -1,0 +1,15 @@
+[Unit]
+Description=Flask App Service
+After=network.target
+
+[Service]
+ExecStart=/home/pi/code/myenv/bin/python3 /home/pi/code/flask_app.py
+WorkingDirectory=/home/pi/code
+StandardOutput=journal
+StandardError=journal
+Restart=always
+User=pi
+Group=pi
+
+[Install]
+WantedBy=multi-user.target

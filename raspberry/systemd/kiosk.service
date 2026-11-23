@@ -1,0 +1,15 @@
+[Unit]
+Description=SPI Kiosk (X11 + Chromium)
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+Environment=DISPLAY=:0
+# 脚本里已经导出 FRAMEBUFFER
+ExecStart=/home/pi/kiosk.sh
+Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target

@@ -12,7 +12,9 @@ def upload_lyrics():
     try:
         data = request.json  # 获取客户端上传的歌词 JSON 数据
         print("歌曲上传成功!")
-        print(data)
+        # 将数据保存到文件（可选）
+        # with open("lyrics.json", "w", encoding="utf-8") as f:
+        #    json.dump(data, f, ensure_ascii=False, indent=4)
         # 将数据广播给所有已连接的 WebSocket 客户端
         socketio.emit('new_lyrics', data)
         return jsonify({"status": "success", "message": "Lyrics received and broadcast!"})
@@ -29,5 +31,5 @@ def handle_disconnect():
     print("客户端已断开连接")
 
 if __name__ == "__main__":
-    socketio.run(app, host='0.0.0.0', port=5588)
+    socketio.run(app, host='0.0.0.0', port=5588, allow_unsafe_werkzeug=True)
 

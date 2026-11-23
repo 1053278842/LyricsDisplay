@@ -8,6 +8,8 @@
   <!-- 像素风格字体 -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
+    /* 镜子方向：--mirror-x: -1 水平镜像；--mirror-y: -1 垂直镜像；1 = 正常 */
+    :root{ --mirror-x: -1; --mirror-y: 1; }
     body {
       margin: 0;
       background: black;
@@ -193,7 +195,7 @@
     }
 
     #player {
-      transform: scaleX(1);
+      transform: scaleX(var(--mirror-x)) scaleY(var(--mirror-y));
       position: relative;
       width: 100%;
       height: 100%;

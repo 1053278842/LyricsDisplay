@@ -1,0 +1,9 @@
+# LyricHud 首次开机自动连接这个 Wi-Fi（可选）
+#
+# 用法：把本文件改名为 lyrichud.conf，和 raspberry/ 一起放到卡的 boot 分区：
+#   /boot/firmware/lyrichud/lyrichud.conf
+#
+# 不需要自动连 Wi-Fi 的话，直接删掉本文件即可（树莓派可以用网线或者别的已保存网络）。
+
+WIFI_SSID=你的WiFi名称
+WIFI_PSK=你的WiFi密码

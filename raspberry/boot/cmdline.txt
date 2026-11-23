@@ -1,0 +1,1 @@
+console=tty3 root=PARTUUID=ceb09e20-02 rootfstype=ext4 fsck.repair=yes rootwait fbcon=map:1 cfg80211.ieee80211_regdom=CN consoleblank=0 quiet loglevel=3

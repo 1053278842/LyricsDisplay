@@ -120,6 +120,7 @@ LyricsDisplay/
 ## 相关项目
 
 - **手机端**：[lyrics_hud_android](https://github.com/1053278842/lyrics_hud_android) —— 从酷狗抓歌词、通过 BLE 找树莓派、HTTP 推数据
+  - 直接下载：**[LyricHud-v1.0.0.apk](https://github.com/1053278842/lyrics_hud_android/releases/latest)**
 
 ## License
 
